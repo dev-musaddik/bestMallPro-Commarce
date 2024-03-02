@@ -1,0 +1,26 @@
+/* Footer.css */
+
+.footer-text {
+    font-size: 14px;
+  }
+  
+  .footer-link {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .footer-link:hover {
+    color: #ffd700; /* Change the color to your preferred hover color */
+  }
+  
+  .social-icons {
+    margin-top: 20px;
+  }
+  
+  .social-icons a {
+    font-size: 28px;
+    margin-right: 15px;
+    color: #fff;
+  }
+  

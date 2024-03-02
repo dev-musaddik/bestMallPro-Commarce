@@ -1,0 +1,142 @@
+
+.home{
+  overflow: hidden;
+  top: 0 !important;
+  background: #e0e0e0;
+}
+
+#home > * {
+  margin: 10px !important;
+  margin-top: 0 !important; /* Set margin-top to 0 to override the previous value */
+}
+
+/* #home > *:not(.navbar) {
+  margin: 10px !important; 
+  margin-top: 0px !important; 
+
+} */
+#home > div:nth-child(1) {
+  margin: 0px !important;
+}
+
+
+.nabvar{
+  z-index: 1000000000;
+  width: 100vw !important;
+  margin: 0 !important;
+}
+ .home-section{
+  height: auto !important;
+  background: #cdcdcd;
+ }
+#home>.front-container>.slider-container{
+  height: 60vh;
+  width: 70%;
+  color: rgb(24, 220, 227) !important;
+ }
+ #home>.front-container>.search-container{
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+ }
+ .carousel-item{
+  color: #ff0000 !important;
+ }
+.carousel-item>img{
+  width: 100%;
+  height: 60vh !important;
+}
+/* .demo-card{
+  display: ;
+} */
+
+
+
+#banner {
+  width: 60vw !important;
+  display: flex;
+  justify-content: center;
+}
+
+
+/* -------------------------------media */
+@media (max-width: 1024px) {
+  #home>.front-container{
+    flex-direction: column;
+  }
+#home>.front-container>.slider-container{
+  width: 100%;
+  height: 40vh;
+  margin-bottom: 5px;
+}
+ #home>.front-container>.search-container{
+  width: 100%;
+  height: 20vh;
+ }
+ #home>.front-container>.search-container>*{
+  padding: 10px;
+ }
+ .carousel-item>img{
+  width: 100%;
+  height: 40vh !important;
+}
+
+  #banner {
+    width: 100% !important;
+  }
+  #home-section {
+    padding: 10px !important;
+  }
+  /* .home-section>.home>.img-section>img{
+        height: 50% !important;
+    } */
+  .home-section > .home {
+    display: flex;
+    flex-direction: column !important;
+    background: #000;
+  }
+
+  .home-section > .home > .img-section {
+    height: 25% !important;
+    width: 100% !important;
+  }
+  .home-section > .home > .search-section {
+    width: 100% !important;
+    max-height: 50% !important;
+  }
+}
+
+.sliding_text_wrap {
+  overflow: hidden;
+  position: relative;
+  height: 50px; /* Adjust the height based on your design */
+}
+
+.sliding_text {
+  white-space: nowrap;
+  animation: slide 10s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Additional styling for better visibility */
+.sliding_text p {
+  margin: 0;
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+}
+.category-section {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 5px;
+}

@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Titillium Web", sans-serif;
+}
+
+:root {
+	--mainColor: #ffffff;
+	--mainColorLight: #5767aa;
+	--secondaryColor: #db2b39;
+	--textColor: #ff9d00;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 80px;
+	width: 100vw;
+	color: var(--textColor);
+	z-index: 100000000;
+	background: rgb(255, 255, 255);
+	box-shadow: 5px 5px 5px rgb(99, 99, 99) ;
+	margin-bottom: 10px;
+}
+nav{
+    display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+nav>.category> a {
+	color: var(--textColor);
+	text-decoration: none;
+    font-size: .8rem;
+}
+
+nav>.category> a:hover {
+	color: var(--secondaryColor);
+    text-decoration: none;
+}
+
+header .nav-btn {
+	padding: 5px;
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: var(--textColor);
+	visibility: hidden;
+	opacity: 0;
+	font-size: 1.8rem;
+}
+
+header div,
+nav {
+	display: flex;
+	align-items: center;
+	z-index: 1000000;
+}
+
+@media only screen and (max-width: 1024px) {
+    .category{
+        flex-direction: column;
+        gap: .9rem;
+        text-align: start;
+        width: 20vw !important;
+        align-items: start !important;
+        
+    }
+	#navbar-header{
+		margin-top: -10000px;
+	}
+	header .nav-btn {
+		visibility: visible;
+		opacity: 1;
+	}
+ 
+	header nav {
+		position: fixed;
+		top: -180vh;
+		left: 0px;
+		height: 100%;
+		width: 30vw;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: .9rem;
+		background-color: var(--mainColor);
+		transition: 1s;
+        overflow-y: scroll;
+        text-align: start;
+	}
+
+	header .responsive_nav {
+		transform: translateY(180vh);
+	}
+
+	nav .nav-close-btn {
+		position: absolute;
+		top: 0rem;
+		right: 0rem;
+	}
+
+	nav>.category> a {
+		font-size: .9rem;
+	}
+}
+@media (max-width: 768px){
+	header nav{
+		width: 65vw;
+	}
+	
+	.icons-bar>.item>.text>h6{
+		font-size: 11px !important;
+		font-weight: bold;
+		padding-bottom: 0 !important;
+		margin-bottom: 0;
+	}
+	.icons-bar>.item>button{
+		font-size: 11px;
+		padding: auto;
+	}
+
+}
+.category{
+    display: flex;
+    justify-content: space-between;
+    width: 95vw;
+    
+    padding: 0 10px;
+    font-weight: 600;
+}

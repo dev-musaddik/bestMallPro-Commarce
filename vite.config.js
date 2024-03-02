@@ -1,0 +1,13 @@
+// vite.config.js
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
+  },
+  esbuild: {
+    jsx: 'react', // Set the jsx option explicitly
+  },
+});

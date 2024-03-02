@@ -1,0 +1,39 @@
+.details-card{
+   display: grid;
+   justify-content: space-between;
+   grid-template-columns: repeat(2,1fr) !important;
+   width: 100%;
+   row-gap: 10px;
+   column-gap: 10px;
+
+}
+.details-card> a{
+    text-decoration: none;
+    width: 100%;
+    color: rgb(71, 50, 253);
+}
+.details-card> a>.item{
+    background: #000000;
+    padding: 10px;
+   box-shadow: 1px 1px 2px rgb(255, 255, 255);
+   transition: .6s;
+
+}
+.details-card> a>.item:hover{
+    background: #7d005b;
+    padding: 10px;
+   box-shadow: 1px 1px 2px rgb(0, 6, 167);
+   color: aqua;
+
+
+}
+@media (max-width: 768px){
+    .details-card{
+        display: grid;
+        justify-content: space-between;
+        grid-template-columns: repeat(1,1fr) !important;
+        width: 100%;
+        row-gap: 5px;
+     
+     }
+}
