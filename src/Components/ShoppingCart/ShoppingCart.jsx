@@ -75,12 +75,19 @@ useEffect(() => {
         <ListGroup className="mt-3">
           {cardItems?.map((item, index) => (
             <ListGroupItem key={index}>
-              <Row>
-                <Col md={6}>
+              <Row className="d-flex justify-content-center align-items-center">
+                <Col md={2} className="d-flex justify-content-center align-items-center">
+                <img src={item.img} className="img-fluid w-50 " alt="" />
+
+                </Col>
+                <Col md={10} className="d-flex">
                   <a href={`/product/${item.key}`} className="text-decoration-none text-warning">{item.name}</a>
                 </Col>
 
-                <Col md={3} className="d-flex flex-column align-items-start">
+               
+              </Row>
+              <Row className="d-flex justify-content-center">
+              <Col md={6} className="d-flex flex-column align-items-start">
                   <div className="quantity-input d-flex align-items-center justify-content-between w-25 text-secondary">
                     <div className="font-weight-bold">Quantity: {item?.quantity}</div>
                   </div>
@@ -89,8 +96,8 @@ useEffect(() => {
 
                   </div>
                 </Col>
-                <Col md={3}>
-                  <div>Total: {item?.price * item.quantity}৳</div>
+                <Col md={6}>
+                  <div className="font-weight-bold">Total: {(item?.price * item.quantity).toFixed(2)}৳</div>
                 </Col>
               </Row>
             </ListGroupItem>
@@ -107,9 +114,10 @@ useEffect(() => {
                   <div key={index}>
                     = $
                     {
-                      Array.isArray(item.price)
+                     ( Array.isArray(item.price)
                         ? item.price.reduce((acc, total) => acc + total, 0) // Use reduce for arrays
                         : item.price * item.quantity // Handle the case when price is not an array
+                        ).toFixed(2) 
                     }
                   </div>
                 ))}
