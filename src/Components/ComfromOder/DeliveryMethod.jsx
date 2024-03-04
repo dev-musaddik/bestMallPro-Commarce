@@ -11,6 +11,8 @@ import {
 import MyContext from "../../ContextApi/myContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import NavbarC from "../Navbar/Navbar";
+
 const FormComponent = () => {
   const { productQuantityManager, data } = useContext(MyContext);
   //   console.log(productQuantityManager);
@@ -107,7 +109,11 @@ console.log(orderSummary)
   console.log(orderSummarySubmit);
 
   return (
-    <Container className="my-4">
+   <div className="checkout">
+    <div className="navbar-sec mb-5 pb-5">
+      <NavbarC></NavbarC>
+    </div>
+    <Container className="mb-5 mb-5">
       <Form onSubmit={handleSubmit}>
         <Row className="mb-3">
           <Col>
@@ -355,7 +361,7 @@ console.log(orderSummary)
                 tk
               </strong>
             </div>
-            <div className="total w-75 d-flex justify-content-between">
+            <div className="total w-75 d-flex justify-content-between mb-5 pb-5">
               <strong>Order Total:</strong>
               <strong>
                 {(
@@ -378,6 +384,7 @@ console.log(orderSummary)
       )}
       <ToastContainer position="top-right" autoClose={5000} />
     </Container>
+   </div>
   );
 };
 
