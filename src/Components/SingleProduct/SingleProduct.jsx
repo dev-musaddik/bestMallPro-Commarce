@@ -560,7 +560,7 @@ const SingleProduct = () => {
 
                     return 0; // If the product is not found or price is not an array, consider its total price as 0
                   })
-                  .reduce((total, productTotal) => total + productTotal, 0)}
+                  .reduce((total, productTotal) => total + productTotal, 0).toFixed(2)}
               </span>
             </div>
           </div>

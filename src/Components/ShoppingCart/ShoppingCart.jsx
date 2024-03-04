@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Container,
   ListGroup,
@@ -10,12 +10,18 @@ import {
 } from "react-bootstrap";
 import NavbarC from "../Navbar/Navbar";
 import MyContext from "../../ContextApi/myContext";
+import "./ShoppingCart.css";
+
+import ShoppingCartQuantity from "./ShoppingCartQuantity";
 
 const ShoppingCart = () => {
   const [voucherCode, setVoucherCode] = useState("");
   const [couponCode, setCouponCode] = useState("");
-  const { data, productQuantityManager } = useContext(MyContext);
-  var cardItems = [];
+  const { data, productQuantityManager,cardItems,setCardItems } = useContext(MyContext);
+  
+useEffect(() => {
+  // Create an array to store the updated card items
+  const updatedCardItems = [];
 
   productQuantityManager.forEach((product) => {
     const matchingItem = data.find((item) => item.key === product.key);
@@ -25,9 +31,14 @@ const ShoppingCart = () => {
         ...matchingItem,
         quantity: product.quantity,
       };
-      cardItems = [...cardItems, itemWithQuantity];
+      updatedCardItems.push(itemWithQuantity);
     }
   });
+
+  // Update the cardItems state once, outside the loop
+  setCardItems(updatedCardItems);
+}, [data, productQuantityManager]);
+
 
   console.log(cardItems);
 
@@ -46,8 +57,8 @@ const ShoppingCart = () => {
   };
 
   return (
-    <div className="">
-      <div className="navbar">
+    <div className="mt-0">
+      <div className="navbar-sec mt-0 pt-0">
         <NavbarC />
       </div>
       <div className="header-content">
@@ -59,18 +70,24 @@ const ShoppingCart = () => {
           / product /shopping-cart
         </a>
       </div>
-      <Container className="mt-4 mb-5 pb-5">
+      <Container className="mt-4 mb-5 pb-5 shopping-cart">
         <h2>Your Shopping Cart</h2>
         <ListGroup className="mt-3">
           {cardItems?.map((item, index) => (
             <ListGroupItem key={index}>
               <Row>
                 <Col md={6}>
-                  <strong>{item.name}</strong>
+                  <a href={`/product/${item.key}`} className="text-decoration-none text-warning">{item.name}</a>
                 </Col>
 
-                <Col md={3}>
-                  <div>Quantity: {item?.quantity}</div>
+                <Col md={3} className="d-flex flex-column align-items-start">
+                  <div className="quantity-input d-flex align-items-center justify-content-between w-25 text-secondary">
+                    <div className="font-weight-bold">Quantity: {item?.quantity}</div>
+                  </div>
+                  <div className="update-quantity ">
+                 <ShoppingCartQuantity Itemkey={item.key} quantity={item.quantity}  />
+
+                  </div>
                 </Col>
                 <Col md={3}>
                   <div>Total: {item?.price * item.quantity}৳</div>
@@ -88,7 +105,8 @@ const ShoppingCart = () => {
               <Col md={6}>
                 {cardItems.map((item, index) => (
                   <div key={index}>
-                  = ${
+                    = $
+                    {
                       Array.isArray(item.price)
                         ? item.price.reduce((acc, total) => acc + total, 0) // Use reduce for arrays
                         : item.price * item.quantity // Handle the case when price is not an array
@@ -104,12 +122,14 @@ const ShoppingCart = () => {
                 <strong>Total:</strong>
               </Col>
               <Col md={6}>
-                {" "}= $
+                {" "}
+                = $
                 {cardItems
                   .map((product) => {
-                   return product.price*product.quantity
+                    return product.price * product.quantity;
                   })
-                  .reduce((total, productTotal) => total + productTotal, 0).toFixed(2)}
+                  .reduce((total, productTotal) => total + productTotal, 0)
+                  .toFixed(2)}
               </Col>
             </Row>
           </ListGroupItem>
