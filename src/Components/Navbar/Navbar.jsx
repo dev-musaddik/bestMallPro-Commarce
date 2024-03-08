@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, FormControl, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { IoIosSearch } from "react-icons/io";
 import "./navbar.css";
-import image from "../../assets/i.jpg";
+import Logo from "../../assets/i.jpg";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { FaCartArrowDown, FaBars, FaTimes } from "react-icons/fa";
 import { FcElectricity } from "react-icons/fc";

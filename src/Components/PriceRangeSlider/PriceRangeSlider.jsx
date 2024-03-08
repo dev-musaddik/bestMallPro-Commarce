@@ -10,7 +10,7 @@ const PriceRangeSlider = () => {
   const [startValue, setStartValue] = useState(range[0]);
   const [endValue, setEndValue] = useState(range[1]);
   const [useInput, setUseInput] = useState(false);
-
+console.log(endValue,startValue)
   const handleSliderChange = (newRange) => {
     // if (!useInput) {
     setRange(newRange);

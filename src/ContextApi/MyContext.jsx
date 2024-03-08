@@ -10,7 +10,7 @@ export const MyProvider = ({ children }) => {
   const [productQuantityManager, setProductQuantityManager] = useState(null);
   const [productCartItems, setProductCartItems] = useState([]);
   const [cardItems,setCardItems]=useState([])
-
+  const [isLoading, setIsLoading] = useState(true);
 
   // Load data from local storage on component mount
   useEffect(() => {
@@ -33,7 +33,9 @@ export const MyProvider = ({ children }) => {
     productCartItems,
     setProductCartItems,
     cardItems,
-    setCardItems
+    setCardItems,
+    isLoading,
+    setIsLoading
   };
 
   if (productQuantityManager === null) {
